@@ -139,3 +139,56 @@ class Base:
             return instance_list
         except OSError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        A method to print a list of rectangles and squares to a screen
+        Args:
+            list_rectangle: a list of rectangles
+            list_square: a list of squares
+        """
+
+        import turtle as t
+        from random import randint
+
+        t.width(0)
+        t.colormode(1.0)
+        t.colormode(255)
+
+        for rectangle in list_rectangles:
+            # set the color in RGB mode
+            red, green, black = randint(0, 255), randint(0, 255), randint(0, 255)
+            t.fillcolor(red, green, black)
+            t.begin_fill()
+            for a in range(4):
+                if a == 1 or a == 3:
+                    t.forward(rectangle.height)
+                else:
+                    t.forward(rectangle.width)
+                t.right(90)
+            t.end_fill()
+            t.up()
+            t.forward(150)
+            t.down()
+
+        # repeat the loop for the square list
+        t.home()
+        t.up()
+        t.left(90)
+        t.forward(200)
+        t.right(90)
+        t.down()
+
+        for square in list_squares:
+            # set the color in RGB mode
+            red, green, black = randint(0, 255), randint(0, 255), randint(0, 255)
+            t.fillcolor(red, green, black)
+            t.begin_fill()
+            for a in range(4):
+                t.forward(square.size)
+                t.right(90)
+            t.end_fill()
+            t.up()
+            t.forward(150)
+            t.down()
