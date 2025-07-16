@@ -1,0 +1,22 @@
+This is the test for the text indentation function in 5-text_indentation
+
+>>> text_indentation = __import__("5-text_indentation").text_indentation
+
+>>> text_indentation("a,   b. c:   d? e")
+a,
+<BLANKLINE>
+b.
+<BLANKLINE>
+c:
+<BLANKLINE>
+d?
+<BLANKLINE>
+e
+>>> text_indentation(2)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
+>>> text_indentation([])
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
