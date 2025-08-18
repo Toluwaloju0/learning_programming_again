@@ -3,7 +3,7 @@
 import sys
 
 from model_state import Base, State
-from sqlalchemy import create_engine
+from sqlalchemy import select, create_engine
 from sqlalchemy.orm import Session
 
 if __name__ == "__main__":
@@ -12,7 +12,7 @@ if __name__ == "__main__":
     engine = create_engine(f"mysql+mysqldb://{uname}:{pword}@localhost/{dbname}", pool_pre_ping=True)
     session = Session(engine)
 
-    new_state = State(name="Louisiana")
+    state = session.execute(select(State).where(State.id == 2)).scalar_one()
 
-    session.add(new_state)
+    state.name = "New Mexo"
     session.commit()
