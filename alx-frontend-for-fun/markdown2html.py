@@ -16,8 +16,6 @@ try:
                 unordered.append(line[1][0:-1])
             elif line[0][0] == "*":
                 ordered.append(line[1][0:-1])
-            else:
-                
         if len(unordered) > 0:
             print("<ul>")
             for item in unordered:
